@@ -1,0 +1,52 @@
+<div class="container mt-5">
+
+    <!-- mensagem de erro -->
+    <div *ngIF="errormsg"  class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>{{errormsg}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <!-- mensagem de sucesso -->
+    <div *ngIF="successmsg"  class="alert alert-success alert-dismissible fade show"    role="alert">
+        <strong>{{sucessmsg}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    
+    <form [formGroup]="userForm" (ngSubmit)=" userSubmit()" > 
+
+        <div class="col-lg-4 mt-2">
+            <input type="text" class="form-control" formControlName="Nome" placeholder="Digite seu Nome Completo">
+        </div>     
+        
+        <div class="col-lg-4 mt-2">
+            <input type="text" class="form-control" formControlName="CPF" placeholder="Digite seu CPF">
+        </div> 
+
+        <div class="col-lg-4 mt-2">
+            <input type="text" class="form-control" formControlName="Email" placeholder="Digite seu Email">
+        </div> 
+
+        <div class="col-lg-4 mt-2">
+            <input type="text" class="form-control" formControlName="Telefone" placeholder="Digite seu Telefone">
+        </div> 
+
+        <div class="col-lg-4 mt-2">
+            <input type="text" class="form-control" formControlName="Sexo" placeholder="Digite seu Sexo">
+        </div> 
+
+        <div class="col-lg-4 mt-2">
+            <input type="text" class="form-control" formControlName="DataNascimento" placeholder="Digite sua Data de Nascimento">
+        </div> 
+        
+    
+
+    <div class="col-lg-4 mt-2" *ngIf="!getparamid" (click)="userSubmit()">
+        <button class="btn btn-primary btn-sm">Criar</button>
+    </div>
+
+    <div class="col-lg-4 mt-2" *ngIf="getparamid" (click)="userUpdate()">
+        <button class="btn btn-dark btn-sm">Update</button>
+    </div>
+
+    </form>
+</div>
